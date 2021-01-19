@@ -15,7 +15,7 @@ export const StyledButton = styled(Button)`
 
 `
 export const Image = styled.img`
-    width: 70px;
+    width: 65px;
     cursor: pointer;
 `
 
