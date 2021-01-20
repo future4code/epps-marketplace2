@@ -1,5 +1,6 @@
-import React from "react";
+import React from "react"
 import axios from 'axios'
+import Box from '@material-ui/core/Box'
 
 
 class productsCard extends React.Component {
@@ -7,11 +8,12 @@ class productsCard extends React.Component {
         produtos: []
     }
 
-    informacoesCard = () =>{
+    informacoesCard = () => {
 
-        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/fourUsedTwo/products')
+        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/fourUsedTwo/products',{}, {})
         .then((res) => {
             console.log(res)
+            alert(res)
             this.setState({produtos: res})
         })
         .catch((err) => {
@@ -21,6 +23,7 @@ class productsCard extends React.Component {
 
     componentDidMount = () =>{
         this.informacoesCard()
+        console.log(this.state.produtos)
     }
 
 
@@ -28,7 +31,9 @@ class productsCard extends React.Component {
     render() {
         
       return (
-        <div>
+
+        <Box>
+          <grid>
           {this.state.produtos.map((informacao)=> {
               return(
                 <div>
@@ -43,8 +48,9 @@ class productsCard extends React.Component {
 
           })
         }
+        </grid>
                   
-        </div>
+        </Box>
       );
     }
   }

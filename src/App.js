@@ -2,6 +2,7 @@ import React from "react";
 import { HomePage } from "./Pages/HomePage";
 import { SellersPage } from "./Pages/SellersPage";
 
+
 class App extends React.Component {
   state = {
     homePageVisible: true,
@@ -22,6 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+
         {this.state.homePageVisible ? (
           <HomePage
             goHome={this.backToHomePage}
@@ -32,6 +34,7 @@ class App extends React.Component {
           goHome={this.backToHomePage}
           handleHomePage={this.handleHomePage} />
         )}
+
       </div>
     );
   }
