@@ -33,6 +33,7 @@ class Body extends React.Component {
 
 
   onChangeNome = (event) => {
+    console.log()
     this.setState({ inputNome: event.target.value });
   };
 
@@ -52,38 +53,38 @@ class Body extends React.Component {
     this.setState({ inputUrl: event.target.value });
   };
 
-  criarProduto = () => {
-    const body = {
-      name: this.state.inputNome,
-      description: this.state.inputDesc,
-      price: this.state.inputValor,
-      category: this.state.inputCategoria,
-      photos: this.state.inputUrl,
-    };
+  // criarProduto = () => {
+  //   const body = {
+  //     name: this.state.inputNome,
+  //     description: this.state.inputDesc,
+  //     price: this.state.inputValor,
+  //     category: this.state.inputCategoria,
+  //     photos: this.state.inputUrl,
+  //   };
 
-    axios
-      .post(
-        "https://us-central1-labenu-apis.cloudfunctions.net/fourUsedTwo/products", body,
-        {
-          headers: {
-            Authorization: "pablo-silas-epps"
-          }
-        }
-      )
-      .then((resposta) => {
-        alert('Produto criado com sucesso!')
-      })
-      .catch((err) => {
-        alert('Erro ao criar novo produto!')
-        console.log(err.message);
-      });
-  };
+  //   axios
+  //     .post(
+  //       "https://us-central1-labenu-apis.cloudfunctions.net/fourUsedTwo/products", body,
+  //       {
+  //         headers: {
+  //           Authorization: "pablo-silas-epps"
+  //         }
+  //       }
+  //     )
+  //     .then((resposta) => {
+  //       alert('Produto criado com sucesso!')
+  //     })
+  //     .catch((err) => {
+  //       alert('Erro ao criar novo produto!')
+  //       console.log(err.message);
+  //     });
+  // };
 
   render() {
     return (
       <Box>
         <h1>Cadastrar novo produto: </h1>
-        <Input placeholder='Nome do Produto:' value={this.inputNome} onChange={this.onChangeNome}></Input>
+        <Input placeholder='Nome do Produto:' value={this.state.inputNome} onChange={this.onChangeNome}></Input>
         <Input placeholder='Descrição do Produto:' value={this.inputDesc} onChange={this.onChangeDesc}></Input>
         <Input placeholder='Valor' type='number' value={this.inputValor} onChange={this.onChangeValor}></Input>
         <Select>
@@ -101,7 +102,7 @@ class Body extends React.Component {
           <option>9</option>
           <option>12</option>
         </Select>
-        <button onClick={this.criarProduto()}>Adicionar Produto</button>
+        <button onClick={this.criarProduto}>Adicionar Produto</button>
       </Box>
     );
   }
