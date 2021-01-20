@@ -1,13 +1,11 @@
-import React from "react";
+import styled from 'styled-components';
+import Button from "@material-ui/core/Button";
 
-class Bodystyled extends React.Component {
-  render() {
-    return (
-      <div>
-    
-      </div>
-    );
-  }
-}
+export const StyledButton = styled(Button)`
+    background-color: #75b0d5;
+    color: #fff;
+    :hover {
+      background-color: #4281a4;
+    }
 
-export default Bodystyled;
+`
