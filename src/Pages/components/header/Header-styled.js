@@ -7,6 +7,7 @@ export const StyledToolBar = styled(Toolbar)`
     justify-content: space-between;
     background-color: #4281a4;
     padding: 2vh;
+    
    
 `
 export const StyledButton = styled(Button)`
