@@ -82,6 +82,7 @@ class Body extends React.Component {
   render() {
     return (
       <Box>
+        
         <h1>Cadastrar novo produto: </h1>
         <Input placeholder='Nome do Produto:' value={this.inputNome} onChange={this.onChangeNome}></Input>
         <Input placeholder='Descrição do Produto:' value={this.inputDesc} onChange={this.onChangeDesc}></Input>
@@ -102,6 +103,7 @@ class Body extends React.Component {
           <option>12</option>
         </Select>
         <button onClick={this.criarProduto()}>Adicionar Produto</button>
+        
       </Box>
     );
   }
