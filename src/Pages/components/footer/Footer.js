@@ -4,7 +4,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import {
   SocialMediaContainer,
-  footerTitle,
+  FooterTitle,
   SocialMediaIcon,
   ListItem,
   UnderList,
@@ -23,14 +23,14 @@ export class Footer extends React.Component {
                   <p>Todos os direitos reservados</p>
               </div>
             <div>
-              <footerTitle>Utilidades</footerTitle>
+              <FooterTitle>Utilidades</FooterTitle>
               <UnderList>
                 <ListItem>Cadastre seu produto</ListItem>
                 <ListItem>Veja nossa lista de produtos</ListItem>
               </UnderList>
             </div>
             <SocialMediaContainer>
-            <footerTitle>Contato</footerTitle>
+            <FooterTitle>Contato</FooterTitle>
               <SocialMediaIcon>
                 <FacebookIcon />
                 <TwitterIcon />
