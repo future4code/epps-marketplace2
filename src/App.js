@@ -1,6 +1,8 @@
 import React from "react";
+import productsCard from "./Pages/components/ProductsCard/productsCard";
 import { HomePage } from "./Pages/HomePage";
 import { SellersPage } from "./Pages/SellersPage";
+
 
 class App extends React.Component {
   render() {
@@ -8,6 +10,7 @@ class App extends React.Component {
       <div>
         <HomePage />
         <SellersPage />
+        <productsCard />
       </div>
     );
   }
