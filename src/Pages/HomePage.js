@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from './components/header/Header'
 import Subheader from './components/subheader/Subheader';
-import App from '../App.css'
+import { Footer } from './components/footer/Footer';
 
 export class HomePage extends React.Component {
   render() {
@@ -9,6 +9,7 @@ export class HomePage extends React.Component {
       <div className="App">
         <Header />
         <Subheader />
+        <Footer />
       </div>
     )
   }
