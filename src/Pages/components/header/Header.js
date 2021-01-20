@@ -10,7 +10,7 @@ export class Header extends React.Component {
         <AppBar position="sticky">
           <StyledToolBar>
             <Image
-              src="https://i.imgur.com/m8SnRQw.png"
+              src="https://i.imgur.com/qlhep1q.png"
               alt="logo"
             >
             </Image>
