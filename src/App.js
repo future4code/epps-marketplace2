@@ -9,9 +9,13 @@ class App extends React.Component {
     return (
       <div>
         <HomePage />
+
+
+
         <productsCard />      
         {/* <SellersPage /> */}
       </div>
+
     );
   }
 }
