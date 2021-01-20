@@ -6,9 +6,7 @@ export const StyledToolBar = styled(Toolbar)`
     display: flex;
     justify-content: space-between;
     background-color: #4281a4;
-    padding: 2vh;
-    
-   
+    padding: 2vh;    
 `
 export const StyledButton = styled(Button)`
     background-color: #75b0d5;
