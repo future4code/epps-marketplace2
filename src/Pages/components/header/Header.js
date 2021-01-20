@@ -9,12 +9,12 @@ export class Header extends React.Component {
       <div>
         <AppBar position="sticky">
           <StyledToolBar>
-            <Image
+            <Image onClick={this.props.goHome}
               src="https://i.imgur.com/qlhep1q.png"
               alt="logo"
             >
             </Image>
-            <StyledButton>Venda Você também</StyledButton>
+            <StyledButton onClick={this.props.handleHomePage}>Venda Você também</StyledButton>
           </StyledToolBar>
         </AppBar>
       </div>
