@@ -23,7 +23,7 @@ export const SocialMediaContainer = styled.div`
     display: block;
 
 `
-export const footerTitle = styled.h5`
+export const FooterTitle = styled.h5`
     font-weight: bold;
     margin: 1px;
 `
