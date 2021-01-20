@@ -7,7 +7,7 @@ export class Header extends React.Component {
   render() {
     return (
       <div>
-        <AppBar>
+        <AppBar position="sticky">
           <StyledToolBar>
             <Image
               src="https://i.imgur.com/m8SnRQw.png"
