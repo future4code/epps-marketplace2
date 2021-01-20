@@ -91,6 +91,7 @@ class Body extends React.Component {
   render() {
     return (
       <Box>
+        
         <h1>Cadastrar novo produto: </h1>
         <Input
           placeholder="Nome do Produto:"
@@ -131,7 +132,10 @@ class Body extends React.Component {
           <option value={9}>9</option>
           <option value={12}>12</option>
         </Select>
+
+      
         <button onClick={this.criarProduto}>Adicionar Produto</button>
+
       </Box>
     );
   }
