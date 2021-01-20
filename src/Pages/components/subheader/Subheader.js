@@ -3,13 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import HomeIcon from './icones/icon'
+import Input from './inputs/Input'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
+    flexDirection:'row',
+    justifyContent: "flex-end",  
   },
-});
+}));
 
 export default function CenteredTabs() {
   const classes = useStyles();
@@ -20,6 +22,7 @@ export default function CenteredTabs() {
   };
 
   return (
+   <>
     <Paper className={classes.root}>
       <Tabs
         value={value}
@@ -31,9 +34,12 @@ export default function CenteredTabs() {
         <Tab label="Acessórios"/>
         <Tab label="Roupas" />
         <Tab label="Calçados" />
-        <Tab label="Casa" icon={<HomeIcon/>}/>
+        <Tab label="Casa"/>
         <Tab label="Diversos" />
+        <Input/>
       </Tabs>
+      
     </Paper>
+  </>
   );
 }
