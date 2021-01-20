@@ -9,8 +9,8 @@ class App extends React.Component {
     return (
       <div>
         <HomePage />
-        <SellersPage />
-        <productsCard />
+        <productsCard />      
+        {/* <SellersPage /> */}
       </div>
     );
   }
