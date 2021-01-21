@@ -11,6 +11,9 @@ export const StyledToolBar = styled(Toolbar)`
 export const StyledButton = styled(Button)`
     background-color: #75b0d5;
     color: #fff;
+    :hover{
+        background-color: #005575
+    }
 
 `
 export const Image = styled.img`

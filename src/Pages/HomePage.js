@@ -7,6 +7,16 @@ import RangeSlider from './components/filters/Range';
 import { Footer } from './components/footer/Footer'; 
 import ProductsCard from './components/ProductsCard/ProductsCard';
 import axios from 'axios'
+import styled from 'styled-components'
+
+
+const DivContainerFilter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 99%;
+  margin: 0px;
+`
+
 
 
 export class HomePage extends React.Component {
@@ -34,21 +44,19 @@ export class HomePage extends React.Component {
     
   }
 
-
-
   render() {
     // console.log(this.state.produtos)
     return (
-      <div className="App">
+      <div >
         <Header
           goHome={this.props.goHome}
           handleHomePage={this.props.handleHomePage}
         />
         <Subheader />
-        <div className="Container-filters">
+        <DivContainerFilter>
           <Filters />
           <RangeSlider />
-        </div>
+        </DivContainerFilter>
         <ProductsCard  produtos={this.state.produtos}/>
         <Footer />
       </div>
