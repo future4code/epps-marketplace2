@@ -24,6 +24,7 @@ export class HomePage extends React.Component {
       .then((res) => {
         
         this.setState({ produtos: res.data.products })
+        this.setState({ produtosFiltrado: res.data.products })
       })
       .catch((err) => {
         console.log(err)
@@ -34,9 +35,7 @@ export class HomePage extends React.Component {
     this.informacoesCard()
   }
 
-  componentDidUpdate = () =>{
-    
-  }
+
   // Pegar os produtos filtrados
  
   handleFilterMax = (e) =>{
@@ -49,7 +48,12 @@ export class HomePage extends React.Component {
   pegaCategoria = (e) =>{
     const categoria = e 
     const filterCategoria = this.state.produtos.filter((produto) =>{
-        return(produto.category === categoria)
+        if(categoria === 'home'){
+          this.informacoesCard()
+        }else{
+          
+          return(produto.category === categoria)
+        }
       
       
     })

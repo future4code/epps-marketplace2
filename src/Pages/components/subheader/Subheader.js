@@ -33,7 +33,7 @@ export default class CenteredTabs extends React.Component {
           // onClick={this.props.pegaCategoria}
           >
             
-          <Tab onClick={() =>{this.props.pegaCategoria('home')}} value={'home'} label="Home"/>
+          <Tab onClick={() =>{this.props.pegaCategoria('home')}} value={'home'} label="Ver Lista Completa"/>
           <Tab onClick={() =>{this.props.pegaCategoria('acessorios')}} value={'acessorios'} label="Acessórios"/>
           <Tab onClick={() =>{this.props.pegaCategoria('roupas')}} label="Roupas" />
           <Tab  onClick={() =>{this.props.pegaCategoria('calcados')}}label="Calçados" />
