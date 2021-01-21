@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { StyledButton } from "./Body-styled";
 
 const Box = styled.div`
   border: 1px solid black;
@@ -16,7 +17,12 @@ const Select = styled.select`
   padding: 10px;
   margin: 10px;
   display: block;
-`;
+`
+
+const H1 = styled.h1`
+   font-family: Arial;
+    color: #3f51b5;
+`
 
 class Body extends React.Component {
   state = {
@@ -50,14 +56,14 @@ class Body extends React.Component {
     this.setState({ inputUrl: event.target.value });
   };
   onChangeInstallments = (event) => {
-    
+
     this.setState({
       inputParcela: event.target.value,
     });
   };
 
   onChangePaymentMethod = (event) => {
-   
+
     this.setState({
       inputPagamento: event.target.value,
     });
@@ -83,7 +89,7 @@ class Body extends React.Component {
         alert("Produto criado com sucesso!");
       })
       .catch((err) => {
-        // alert("Erro ao criar novo produto!");
+        alert("Erro ao criar novo produto!");
         console.log(err.message);
       });
   };
@@ -91,8 +97,8 @@ class Body extends React.Component {
   render() {
     return (
       <Box>
-        
-        <h1>Cadastrar novo produto: </h1>
+
+        <H1>Cadastrar novo produto: </H1>
         <Input
           placeholder="Nome do Produto:"
           value={this.state.inputNome}
@@ -112,7 +118,7 @@ class Body extends React.Component {
         <Select onChange={this.onChangePaymentMethod}>
           <option>Pagamento</option>
           <option value={"card"}>Cartão</option>
-          <option value={"money"}>Boleto</option>
+          <option value={"money"}>Dinheiro</option>
         </Select>
         <Input
           placeholder="Categoria"
@@ -120,7 +126,7 @@ class Body extends React.Component {
           onChange={this.onChangeCategoria}
         ></Input>
         <Input
-          placeholder="URl da Foto"
+          placeholder="URL da Foto"
           value={this.inputUrl}
           onChange={this.onChangeUrl}
         ></Input>
@@ -132,9 +138,8 @@ class Body extends React.Component {
           <option value={9}>9</option>
           <option value={12}>12</option>
         </Select>
-
-      
-        <button onClick={this.criarProduto}>Adicionar Produto</button>
+      <br/>
+        <StyledButton onClick={this.criarProduto}>Adicionar Produto</StyledButton>
 
       </Box>
     );
