@@ -5,40 +5,44 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 
-const useStyles = makeStyles(() => ({
-  root: {
-    display: 'flex',
-    flexDirection:'row',
-    justifyContent: "center",  
-  },
-}));
+// const useStyles = makeStyles(() => ({
+//   root: {
+//     display: 'flex',
+//     flexDirection:'row',
+//     justifyContent: "center",  
+//   },
+// }));
 
-export default function CenteredTabs() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+export default class CenteredTabs extends React.Component {
+  render(){
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-   <>
-    <Paper className={classes.root}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="#64536f"
-        centered 
-        >
-        <Tab label="Acessórios"/>
-        <Tab label="Roupas" />
-        <Tab label="Calçados" />
-        <Tab label="Casa"/>
-        <Tab label="Diversos" />
-      </Tabs>
-      
-    </Paper>
-  </>
-  );
+    // const classes = useStyles();
+    // const [value, setValue] = React.useState(0);
+  
+    // const handleChange = (event, newValue) => {
+    //   setValue(newValue);
+    // };
+  
+    return (
+     <>
+      <Paper >
+        <Tabs
+          indicatorColor="primary"
+          textColor="#64536f"
+          centered 
+          // onClick={this.props.pegaCategoria}
+          >
+            
+          <Tab onClick={() =>{this.props.pegaCategoria('home')}} value={'home'} label="Home"/>
+          <Tab onClick={() =>{this.props.pegaCategoria('acessorios')}} value={'acessorios'} label="Acessórios"/>
+          <Tab onClick={() =>{this.props.pegaCategoria('roupas')}} label="Roupas" />
+          <Tab  onClick={() =>{this.props.pegaCategoria('calcados')}}label="Calçados" />
+          <Tab  onClick={() =>{this.props.pegaCategoria('casa')}}label="Casa"/>
+          <Tab  onClick={() =>{this.props.pegaCategoria('diversos')}}label="Diversos" />
+        </Tabs>
+        
+      </Paper>
+    </>
+    );
+  }
 }

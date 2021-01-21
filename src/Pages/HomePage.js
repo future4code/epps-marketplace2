@@ -5,17 +5,17 @@ import Subheader from './components/subheader/Subheader';
 import Filters from './components/filters/Filters';
 import { Footer } from './components/footer/Footer'; 
 
-import ProductsCard from './components/ProductsCard/productsCard';
-import CheckboxLabels from "./components/filters/FilterCheckBox";
-=======
 import ProductsCard from './components/ProductsCard/ProductsCard';
+// import CheckboxLabels from "./components/filters/FilterCheckBox";
 import axios from 'axios'
 
 
 
 export class HomePage extends React.Component {
   state = {
-    produtos: []
+    produtos: [],
+    produtosFiltrado: [],
+    valorMax: Infinity
   }
 
   informacoesCard = () => {
@@ -39,6 +39,25 @@ export class HomePage extends React.Component {
   }
   // Pegar os produtos filtrados
  
+  handleFilterMax = (e) =>{
+   
+    this.setState({
+      valorMax: e.target.value
+    })
+  }
+
+  pegaCategoria = (e) =>{
+    const categoria = e 
+    const filterCategoria = this.state.produtos.filter((produto) =>{
+        return(produto.category === categoria)
+      
+      
+    })
+    this.setState({
+      produtosFiltrado: filterCategoria
+    })
+  }
+
 
   render() {
     
@@ -49,9 +68,9 @@ export class HomePage extends React.Component {
           goHome={this.props.goHome}
           handleHomePage={this.props.handleHomePage}
         />
-        <Filters/>
-        <Subheader />
-        <ProductsCard  produtos={this.state.produtos}/>
+        <Filters handleFilterMax={this.handleFilterMax} />
+        <Subheader pegaCategoria={this.pegaCategoria} />
+        <ProductsCard produtos={this.state.produtosFiltrado}/>
         <Footer />
       </div>
         
