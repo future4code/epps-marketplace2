@@ -1,5 +1,4 @@
 import React from "react"
-import axios from 'axios'
 import styled from 'styled-components';
 
 const Principal = styled.div `
@@ -12,6 +11,7 @@ const Card = styled.div `
   padding: 10px;
   margin: 5px;
   border-radius: 3px;
+  width: 400px;
 `
 const H3 = styled.h3 `
   font-family: Arial;
@@ -25,33 +25,15 @@ const H3 = styled.h3 `
 
 
 class ProductsCard extends React.Component {
-  state = {
-    produtos: []
-  }
-
-  informacoesCard = () => {
-
-    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/fourUsedTwo/products')
-      .then((res) => {
-        this.setState({ produtos: res.data.products })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-  componentDidMount = () => {
-    {this.informacoesCard()}
-  }
-
   render() {
+    
     return (
       <Principal>
-        {this.state.produtos.map((i) => {
+        {this.props.produtos.map((i) => {
           return (
-            <Card>
+            <Card key={i.id}>
               <H3>{i.name}</H3>
-              <img height='250px' width='300px' src={i.photos}></img>
+              <img height='250px' width='300px' src={i.photos} alt={i.nome}></img>
               <p>{i.category}</p>
               <p><strong>Descrição: </strong>{i.description}</p>
               <p><strong>Valor: </strong> {i.price}</p>
