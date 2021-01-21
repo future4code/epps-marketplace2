@@ -5,8 +5,7 @@ import Subheader from './components/subheader/Subheader';
 import Filters from './components/filters/Filters';
 import RangeSlider from './components/filters/Range';
 import { Footer } from './components/footer/Footer'; 
-import ProductsCard from './components/ProductsCard/ProductsCard';
-import CheckboxLabels from "./components/filters/FilterCheckBox";
+import ProductsCard from './components/ProductsCard/productsCard';
 
 
 export class HomePage extends React.Component {
@@ -21,7 +20,6 @@ export class HomePage extends React.Component {
         <div className="Container-filters">
           <Filters />
           <RangeSlider />
-          <CheckboxLabels/>
         </div>
         <ProductsCard />
         <Footer />
