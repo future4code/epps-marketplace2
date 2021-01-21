@@ -5,8 +5,13 @@ import Subheader from './components/subheader/Subheader';
 import Filters from './components/filters/Filters';
 import RangeSlider from './components/filters/Range';
 import { Footer } from './components/footer/Footer'; 
+
+import ProductsCard from './components/ProductsCard/productsCard';
+import CheckboxLabels from "./components/filters/FilterCheckBox";
+=======
 import ProductsCard from './components/ProductsCard/ProductsCard';
 import axios from 'axios'
+
 
 
 export class HomePage extends React.Component {
