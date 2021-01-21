@@ -16,7 +16,7 @@ class App extends React.Component {
 
   backToHomePage = () => {
     this.setState({
-      handleHomePage: true,
+      homePageVisible: true,
     });
   };
 

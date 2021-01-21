@@ -87,6 +87,7 @@ class Body extends React.Component {
       )
       .then((resposta) => {
         alert("Produto criado com sucesso!");
+        
       })
       .catch((err) => {
         alert("Erro ao criar novo produto!");
