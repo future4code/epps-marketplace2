@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Input from './inputs/Input'
+
 
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection:'row',
-    justifyContent: "flex-end",  
+    justifyContent: "center",  
   },
 }));
 
@@ -28,7 +28,7 @@ export default function CenteredTabs() {
         value={value}
         onChange={handleChange}
         indicatorColor="primary"
-        textColor="primary"
+        textColor="#64536f"
         centered 
         >
         <Tab label="Acessórios"/>
@@ -36,7 +36,6 @@ export default function CenteredTabs() {
         <Tab label="Calçados" />
         <Tab label="Casa"/>
         <Tab label="Diversos" />
-        <Input/>
       </Tabs>
       
     </Paper>
