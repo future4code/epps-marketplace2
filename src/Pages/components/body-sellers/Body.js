@@ -28,7 +28,7 @@ class Body extends React.Component {
   state = {
     inputNome: "",
     inputDesc: "",
-    inputValor: "",
+    inputValor: 0,
     inputCategoria: "",
     inputUrl: [],
     inputPagamento: "",
@@ -44,15 +44,15 @@ class Body extends React.Component {
   };
 
   onChangeValor = (event) => {
-    this.setState({ inputValor: event.target.value });
+    this.setState({ inputValor: Number(event.target.value) });
   };
 
   onChangeCategoria = (event) => {
+    
     this.setState({ inputCategoria: event.target.value });
   };
 
   onChangeUrl = (event) => {
-    console.log(event.target.value)
     this.setState({ inputUrl: event.target.value });
   };
   onChangeInstallments = (event) => {
@@ -121,13 +121,13 @@ class Body extends React.Component {
           <option value={"card"}>Cartão</option>
           <option value={"money"}>Dinheiro</option>
         </Select>
-        <Select onChange={this.onChangeInstallments}>
+        <Select onChange={this.onChangeCategoria}>
           <option>Categoria</option>
-          <option value='Acessorios'>Acessórios</option>
-          <option value='Roupas'>Roupas</option>
-          <option value='Calçados'>Calçados</option>
-          <option value='Casa'>Casa</option>
-          <option value='Diversos'>Diversos</option>
+          <option value={'acessorios'}>Acessórios</option>
+          <option value={'roupas'}>Roupas</option>
+          <option value={'calcados'}>Calçados</option>
+          <option value={'casa'}>Casa</option>
+          <option value={'diversos'}>Diversos</option>
         </Select>
         <Input
           placeholder="URL da Foto"
