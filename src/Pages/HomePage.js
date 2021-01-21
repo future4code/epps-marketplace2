@@ -5,6 +5,10 @@ import Subheader from './components/subheader/Subheader';
 import Filters from './components/filters/Filters';
 import RangeSlider from './components/filters/Range';
 import { Footer } from './components/footer/Footer'; 
+
+import ProductsCard from './components/ProductsCard/productsCard';
+import CheckboxLabels from "./components/filters/FilterCheckBox";
+=======
 import ProductsCard from './components/ProductsCard/ProductsCard';
 import axios from 'axios'
 import styled from 'styled-components'
@@ -16,6 +20,7 @@ const DivContainerFilter = styled.div`
   width: 99%;
   margin: 0px;
 `
+
 
 
 

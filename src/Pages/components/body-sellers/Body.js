@@ -121,11 +121,14 @@ class Body extends React.Component {
           <option value={"card"}>Cartão</option>
           <option value={"money"}>Dinheiro</option>
         </Select>
-        <Input
-          placeholder="Categoria"
-          value={this.inputCategoria}
-          onChange={this.onChangeCategoria}
-        ></Input>
+        <Select onChange={this.onChangeInstallments}>
+          <option>Categoria</option>
+          <option value='Acessorios'>Acessórios</option>
+          <option value='Roupas'>Roupas</option>
+          <option value='Calçados'>Calçados</option>
+          <option value='Casa'>Casa</option>
+          <option value='Diversos'>Diversos</option>
+        </Select>
         <Input
           placeholder="URL da Foto"
           value={this.inputUrl}
