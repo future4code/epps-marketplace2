@@ -5,6 +5,7 @@ import Filters from "./components/filters/Filters";
 import RangeSlider from "./components/filters/Range";
 import productsCard from "./components/ProductsCard/productsCard";
 import { Footer } from "./components/footer/Footer";
+import CheckboxLabels from "./components/filters/FilterCheckBox";
 
 export class HomePage extends React.Component {
   render() {
@@ -18,6 +19,7 @@ export class HomePage extends React.Component {
         <div className="Container-filters">
           <Filters />
           <RangeSlider />
+          <CheckboxLabels/>
         </div>
         <productsCard />
         <Footer />
