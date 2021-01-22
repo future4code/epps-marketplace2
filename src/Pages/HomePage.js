@@ -6,7 +6,7 @@ import ProductsCard from "./components/ProductsCard/ProductsCard";
 import ProductsCart from './components/Cart/ProductsCart';
 import { Footer } from "./components/footer/Footer";
 import styled from "styled-components";
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+// import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import axios from "axios";
 
 // Ícone do Carrinho
@@ -24,17 +24,14 @@ const Cart = styled.div`
   box-shadow: 0 0 5px #00000059;
   cursor: pointer;
   transition: 0.5s;
-  
   > img {
     width: 50%;
     height: 45%;
-  }
-  
+  } 
  :hover {
     box-shadow: 0 0 20px blue;
  }
 `
-
 
 export class HomePage extends React.Component {
 
@@ -43,13 +40,14 @@ export class HomePage extends React.Component {
     produtosFiltrado: [],
     valorMax: Infinity,
     valorMin: 0,
+
     nomeBusca: "",
+
 
     cart: [],
     isCartVisible: false,
     currentSearchValue: '',
     ordenacao: "",
-
   };
 
   informacoesCard = () => {
@@ -102,8 +100,10 @@ export class HomePage extends React.Component {
   
   //Filtra os Produtos por Valor Máximo e Minimo
   filtraProdutos = () => {
+
     const listaProdutos = this.state.produtos.filter((produto) =>{
       return this.state.valorMin > 0 ? produto.price >= this.state.valorMin : produto    
+
     })
     .filter((produto) => {
       return this.state.valorMax < Infinity ? produto.price <= this.state.valorMax : produto
@@ -114,6 +114,7 @@ export class HomePage extends React.Component {
       const produtoNome = produto.name.toLowerCase()
       return produtoNome.indexOf(this.state.nomeBusca.toLowerCase()) > -1
     })
+
 
 
 
@@ -167,8 +168,6 @@ export class HomePage extends React.Component {
           produtosFiltrado: this.state.produtos,
         });
     }
-
-
   };
 
 
@@ -187,42 +186,12 @@ export class HomePage extends React.Component {
   };
 
   //Função de adicionar produtos ao carrinho 
-  addProductToCart = (product) => {
-    const newCart = [...this.state.cart]
-    const productIndexInCart = this.state.cart.findIndex((item) => item.product.id === product.id)
 
-    if (productIndexInCart > -1) {
-      newCart[productIndexInCart].quantity += 1
-    } else {
-      newCart.push({ product: product, quantity: 1 })
-    }
-
-    this.setState({
-      cart: newCart,
-    })
-  }
-  // Remove produtos do carrinho
-  removeProductFromCart = (product) => {
-    const newCart = [...this.state.cart]
-    const productIndexToRemove = this.state.cart.findIndex((item) => item.product.id === product.id)
-
-    newCart.splice(productIndexToRemove, 1)
-
-    this.setState({
-      cart: newCart,
-    })
-  }
-
-  // Função para mostrar o campo do carrinho
-  toggleCartVisibility = () => {
-    this.setState({
-      isCartVisible: !this.state.isCartVisible,
-    })
-  }
 
   render() {
     return (
       <div className="App">
+        
         <Header
           goHome={this.props.goHome}
           handleHomePage={this.props.handleHomePage}
@@ -238,18 +207,13 @@ export class HomePage extends React.Component {
 
         <Subheader pegaCategoria={this.pegaCategoria} />
         {/* <Filters filtraProdutos={this.filtraProdutos} handleFilterMax={this.handleFilterMax} handleFilterMin={this.handleFilterMin} /> */}
-        {this.state.isCartVisible && (
-          <ProductsCart
-            cartContent={this.state.cart}
-            removeProductFromCart={this.removeProductFromCart}
-          />
-        )}
-        <Cart onClick={this.toggleCartVisibility}>
-          <img src='https://www.flaticon.com/svg/vstatic/svg/1170/1170678.svg?token=exp=1611336500~hmac=be6ab5d66782ec832d906f33dd924869' alt="cart-icon" />
-        </Cart>
-        <ProductsCard
-          produtos={this.state.produtosFiltrado}
+
+        
+        <ProductsCard 
+          produtos={this.state.produtosFiltrado} 
+
         />
+        
         <Footer />
       </div>
     );
