@@ -90,13 +90,24 @@ export default class Filters extends React.Component {
             onChange={this.props.handleFilterMax}
           />
 
-          <Filtrar onClick={this.props.filtraProdutos}>Filtrar</Filtrar>
+
+          
+
+
+          
+
 
           <Fontes>Buscar Produto:</Fontes>
           <Inputs
             type="search"
             name="busca"
+            onChange={this.props.handleBusca}
           />
+
+          
+          <Filtrar onClick={this.props.filtraProdutos}>Filtrar</Filtrar>
+          {/* <button onClick={this.props.filtraProdutos}>Filtar</button> */}
+
           <Fontes>Ordenar produtos:</Fontes>
           <Selector
             native

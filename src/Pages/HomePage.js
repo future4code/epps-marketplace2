@@ -34,12 +34,16 @@ const Cart = styled.div`
 `
 
 export class HomePage extends React.Component {
-  
+
   state = {
     produtos: [],
     produtosFiltrado: [],
     valorMax: Infinity,
     valorMin: 0,
+
+    nomeBusca: "",
+
+
     cart: [],
     isCartVisible: false,
     currentSearchValue: '',
@@ -62,11 +66,11 @@ export class HomePage extends React.Component {
 
   componentDidMount = () => {
 
-    this.informacoesCard();  
+    this.informacoesCard();
   };
 
   componentDidUpdate = () => {
-    //  this.informacoesCard()
+
   };
 
   // Pegar os produtos filtrados
@@ -78,7 +82,7 @@ export class HomePage extends React.Component {
   };
 
 
-  handleFilterMin = (e) =>{
+  handleFilterMin = (e) => {
     const valorMinino = e.target.value
 
     this.setState({
@@ -86,14 +90,32 @@ export class HomePage extends React.Component {
     });
   };
 
+  handleBusca = (e) => {
+    const buscador = e.target.value
+    this.setState({
+      nomeBusca: buscador,
+    });
+    console.log(buscador)
+  };
+  
+  //Filtra os Produtos por Valor Máximo e Minimo
   filtraProdutos = () => {
-    const listaProdutos = this.state.produtosFiltrado.filter((produto) =>{
-      return this.state.valorMin > 0 ? produto.price > this.state.valorMin : produto    
+
+    const listaProdutos = this.state.produtos.filter((produto) =>{
+      return this.state.valorMin > 0 ? produto.price >= this.state.valorMin : produto    
+
     })
-    
     .filter((produto) => {
-      return this.state.valorMax < Infinity ? produto.price < this.state.valorMax : produto
+      return this.state.valorMax < Infinity ? produto.price <= this.state.valorMax : produto
     })
+    .filter((produto) => {
+      // console.log(produto)
+      // return this.state.nomeBusca === "" ? produto.name : produto
+      const produtoNome = produto.name.toLowerCase()
+      return produtoNome.indexOf(this.state.nomeBusca.toLowerCase()) > -1
+    })
+
+
 
 
     return(
@@ -114,14 +136,14 @@ export class HomePage extends React.Component {
           return a.name.toLowerCase() < b.name.toLowerCase()
             ? -1
             : a.name.toLowerCase() > b.name.toLowerCase()
-            ? 1
-            : 0;
+              ? 1
+              : 0;
         })
         this.setState({
           produtosFiltrado: arrayProdutos
         })
         break
-       
+
       case "categoria":
         arrayProdutos.sort((a, b) => {
           return a.category < b.category ? -1 : a.category > b.category ? 1 : 0;
@@ -139,6 +161,7 @@ export class HomePage extends React.Component {
           produtosFiltrado: arrayProdutos
         })
         break
+
 
       default:
         this.setState({
@@ -163,36 +186,7 @@ export class HomePage extends React.Component {
   };
 
   //Função de adicionar produtos ao carrinho 
-    addProductToCart = (product) => {
-      const newCart = [...this.state.cart]
-      const productIndexInCart = this.state.cart.findIndex((item) => item.product.id === product.id)
-  
-      if (productIndexInCart > -1) {
-        newCart[productIndexInCart].quantity += 1
-      } else {
-        newCart.push({ product: product, quantity: 1 })
-      }
-      this.setState({
-        cart: newCart,
-      })
-    }
-  // Remove produtos do carrinho
-  removeProductFromCart = (product) => {
-    const newCart = [...this.state.cart]
-    const productIndexToRemove = this.state.cart.findIndex((item) => item.product.id === product.id)
 
-    newCart.splice(productIndexToRemove, 1)
-
-    this.setState({
-      cart: newCart,
-    })
-  }
-  // Função para mostrar o campo do carrinho
-    toggleCartVisibility = () => {
-      this.setState({
-        isCartVisible: !this.state.isCartVisible,
-      })
-    }
 
   render() {
     return (
@@ -202,28 +196,22 @@ export class HomePage extends React.Component {
           goHome={this.props.goHome}
           handleHomePage={this.props.handleHomePage}
         />
-        
-        <Subheader pegaCategoria={this.pegaCategoria} />
-        
-        <Filters 
-        filtraProdutos={this.filtraProdutos} 
-        handleFilterMax={this.handleFilterMax} 
-        handleFilterMin={this.handleFilterMin} 
-        ordenacao={this.onChangeOrder}
+
+        <Filters
+          ordenacao={this.onChangeOrder}
+          filtraProdutos={this.filtraProdutos}
+          handleFilterMax={this.handleFilterMax}
+          handleFilterMin={this.handleFilterMin}
+          handleBusca={this.handleBusca}
         />
-        
-        {this.state.isCartVisible && (
-          <ProductsCart
-            cartContent={this.state.cart}
-            removeProductFromCart={this.removeProductFromCart}
-          />
-        )}
-        <Cart onClick={this.toggleCartVisibility}>
-          <img src='https://www.flaticon.com/svg/vstatic/svg/1170/1170678.svg?token=exp=1611336500~hmac=be6ab5d66782ec832d906f33dd924869'alt="cart-icon"/>
-          </Cart>
+
+        <Subheader pegaCategoria={this.pegaCategoria} />
+        {/* <Filters filtraProdutos={this.filtraProdutos} handleFilterMax={this.handleFilterMax} handleFilterMin={this.handleFilterMin} /> */}
+
         
         <ProductsCard 
           produtos={this.state.produtosFiltrado} 
+
         />
         
         <Footer />
