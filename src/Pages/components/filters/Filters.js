@@ -19,7 +19,7 @@ const Fontes = styled.p`
   margin: 2%;
   font-family: Arial, Helvetica, sans-serif;
 `;
-const Titulo = styled.button`
+const Filtrar = styled.button`
   width: 8%;
   height: 35%;
   font-size: 14px;
@@ -88,18 +88,15 @@ export default class Filters extends React.Component {
             min={0}
             name="valorMax"
             onChange={this.props.handleFilterMax}
-
           />
 
-          <Titulo onClick={this.props.filtraProdutos}>Filtrar</Titulo>
-
+          <Filtrar onClick={this.props.filtraProdutos}>Filtrar</Filtrar>
 
           <Fontes>Buscar Produto:</Fontes>
           <Inputs
             type="search"
             name="busca"
           />
-          {/* <button onClick={this.props.filtraProdutos}>Filtar</button> */}
           <Fontes>Ordenar produtos:</Fontes>
           <Selector
             native
@@ -110,7 +107,6 @@ export default class Filters extends React.Component {
             <option value="nome">Nome</option>
             <option value="categoria">Categoria</option>
             <option value="preco">Preço</option>
-
           </Selector>
         
         </BoxFilter>

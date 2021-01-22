@@ -21,7 +21,6 @@ const H3 = styled.h3 `
       color: #75b0d5;
       cursor: pointer;
     }
-
 `
 const Botao = styled.button `
   padding: 7px;

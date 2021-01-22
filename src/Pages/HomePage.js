@@ -24,17 +24,14 @@ const Cart = styled.div`
   box-shadow: 0 0 5px #00000059;
   cursor: pointer;
   transition: 0.5s;
-  
   > img {
     width: 50%;
     height: 45%;
-  }
-  
+  } 
  :hover {
     box-shadow: 0 0 20px blue;
  }
 `
-
 
 export class HomePage extends React.Component {
   
@@ -43,12 +40,10 @@ export class HomePage extends React.Component {
     produtosFiltrado: [],
     valorMax: Infinity,
     valorMin: 0,
-
     cart: [],
     isCartVisible: false,
     currentSearchValue: '',
     ordenacao: "",
-
   };
 
   informacoesCard = () => {
@@ -92,7 +87,6 @@ export class HomePage extends React.Component {
   };
 
   filtraProdutos = () => {
-
     const listaProdutos = this.state.produtosFiltrado.filter((produto) =>{
       return this.state.valorMin > 0 ? produto.price > this.state.valorMin : produto    
     })
@@ -106,22 +100,9 @@ export class HomePage extends React.Component {
         produtosFiltrado: listaProdutos,
         valorMax: Infinity,
         valorMin: 0
-
       })
-
-
-      .filter((produto) => {
-        return this.state.valorMax < Infinity
-          ? produto.price < this.state.valorMax
-          : produto;
-      });
-    console.log(listaProdutos);
-    return this.setState({
-      produtosFiltrado: listaProdutos,
-      valorMax: Infinity,
-      valorMin: 0,
-    });
-  };
+    )
+  }
 
   onChangeOrder = (e) => {
     const ordernar = e.target.value;
@@ -148,7 +129,7 @@ export class HomePage extends React.Component {
           produtosFiltrado: arrayProdutos
         })
         break
-      
+
       case "preco":
         arrayProdutos.sort((a, b) => {
           return a.price < b.price ? -1 : a.price > b.price ? 1 : 0;
@@ -157,15 +138,12 @@ export class HomePage extends React.Component {
           produtosFiltrado: arrayProdutos
         })
         break
-        
 
       default:
         this.setState({
           produtosFiltrado: this.state.produtos,
         });
     }
-
-
   };
 
 
@@ -193,7 +171,6 @@ export class HomePage extends React.Component {
       } else {
         newCart.push({ product: product, quantity: 1 })
       }
-  
       this.setState({
         cart: newCart,
       })
@@ -209,7 +186,6 @@ export class HomePage extends React.Component {
       cart: newCart,
     })
   }
-
   // Função para mostrar o campo do carrinho
     toggleCartVisibility = () => {
       this.setState({
@@ -220,20 +196,20 @@ export class HomePage extends React.Component {
   render() {
     return (
       <div className="App">
+        
         <Header
           goHome={this.props.goHome}
           handleHomePage={this.props.handleHomePage}
         />
-
-        <Filters
-          ordenacao={this.onChangeOrder}
-          filtraProdutos={this.filtraProdutos}
-          handleFilterMax={this.handleFilterMax}
-          handleFilterMin={this.handleFilterMin}
-        />
-
+        
         <Subheader pegaCategoria={this.pegaCategoria} />
-        <Filters filtraProdutos={this.filtraProdutos} handleFilterMax={this.handleFilterMax} handleFilterMin={this.handleFilterMin} />
+        
+        <Filters 
+        filtraProdutos={this.filtraProdutos} 
+        handleFilterMax={this.handleFilterMax} 
+        handleFilterMin={this.handleFilterMin} 
+        />
+        
         {this.state.isCartVisible && (
           <ProductsCart
             cartContent={this.state.cart}
@@ -243,9 +219,11 @@ export class HomePage extends React.Component {
         <Cart onClick={this.toggleCartVisibility}>
           <img src='https://www.flaticon.com/svg/vstatic/svg/1170/1170678.svg?token=exp=1611336500~hmac=be6ab5d66782ec832d906f33dd924869'alt="cart-icon"/>
           </Cart>
+        
         <ProductsCard 
           produtos={this.state.produtosFiltrado} 
         />
+        
         <Footer />
       </div>
     );
