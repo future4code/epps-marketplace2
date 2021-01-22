@@ -6,7 +6,7 @@ import ProductsCard from "./components/ProductsCard/ProductsCard";
 import ProductsCart from './components/Cart/ProductsCart';
 import { Footer } from "./components/footer/Footer";
 import styled from "styled-components";
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+// import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import axios from "axios";
 
 // Ícone do Carrinho
@@ -66,7 +66,7 @@ export class HomePage extends React.Component {
   };
 
   componentDidUpdate = () => {
-     
+    //  this.informacoesCard()
   };
 
   // Pegar os produtos filtrados
@@ -94,6 +94,7 @@ export class HomePage extends React.Component {
     .filter((produto) => {
       return this.state.valorMax < Infinity ? produto.price < this.state.valorMax : produto
     })
+
 
     return(
       this.setState({
@@ -208,6 +209,7 @@ export class HomePage extends React.Component {
         filtraProdutos={this.filtraProdutos} 
         handleFilterMax={this.handleFilterMax} 
         handleFilterMin={this.handleFilterMin} 
+        ordenacao={this.onChangeOrder}
         />
         
         {this.state.isCartVisible && (
