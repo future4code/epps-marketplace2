@@ -91,14 +91,17 @@ export default class Filters extends React.Component {
 
           />
 
-          <Titulo onClick={this.props.filtraProdutos}>Filtrar</Titulo>
+          
 
 
           <Fontes>Buscar Produto:</Fontes>
           <Inputs
             type="search"
             name="busca"
+            onChange={this.props.handleBusca}
           />
+          
+          <Titulo onClick={this.props.filtraProdutos}>Filtrar</Titulo>
           {/* <button onClick={this.props.filtraProdutos}>Filtar</button> */}
           <Fontes>Ordenar produtos:</Fontes>
           <Selector
