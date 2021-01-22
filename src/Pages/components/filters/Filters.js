@@ -14,11 +14,13 @@ const BoxFilter = styled.div`
   margin: auto;
   font-family: "Source Code Pro", monospace;
 `;
+
 const Fontes = styled.p`
   color: #64536f;
   margin: 2%;
   font-family: Arial, Helvetica, sans-serif;
 `;
+
 const Filtrar = styled.button`
   width: 8%;
   height: 35%;
@@ -90,23 +92,14 @@ export default class Filters extends React.Component {
             onChange={this.props.handleFilterMax}
           />
 
-
-          
-
-
-          
-
-
           <Fontes>Buscar Produto:</Fontes>
           <Inputs
             type="search"
             name="busca"
             onChange={this.props.handleBusca}
           />
-
           
           <Filtrar onClick={this.props.filtraProdutos}>Filtrar</Filtrar>
-          {/* <button onClick={this.props.filtraProdutos}>Filtar</button> */}
 
           <Fontes>Ordenar produtos:</Fontes>
           <Selector
