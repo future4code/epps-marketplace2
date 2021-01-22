@@ -96,7 +96,7 @@ export default class Filters extends React.Component {
             type="number"
             min={0}
             name="valorMin"
-            // onChange={handleMinFilter}
+            onChange={this.props.handleFilterMin}
           />
 
           <Fontes>Valor Máximo:</Fontes>
@@ -105,6 +105,7 @@ export default class Filters extends React.Component {
             min={0}
             name="valorMax"
             onChange={this.props.handleFilterMax}
+
           />
           <Fontes>Buscar Produto:</Fontes>
           <Inputs
@@ -113,6 +114,7 @@ export default class Filters extends React.Component {
             // value={props.searchValue}
             // onChange={props.handleSearchChange}
           />
+          <button onClick={this.props.filtraProdutos}>Filtar</button>
           <Fontes>Ordenar produtos:</Fontes>
           <Selector
             native
