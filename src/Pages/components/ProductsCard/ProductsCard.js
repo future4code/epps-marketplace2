@@ -6,6 +6,7 @@ const Principal = styled.div `
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  border: 1px solid red;
 `
 const Card = styled.div ` 
   border: 1px solid #4281a4;
