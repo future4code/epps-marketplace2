@@ -4,34 +4,18 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-
-// const useStyles = makeStyles(() => ({
-//   root: {
-//     display: 'flex',
-//     flexDirection:'row',
-//     justifyContent: "center",  
-//   },
-// }));
-
 export default class CenteredTabs extends React.Component {
+  
   render(){
 
-    // const classes = useStyles();
-    // const [value, setValue] = React.useState(0);
-  
-    // const handleChange = (event, newValue) => {
-    //   setValue(newValue);
-    // };
-  
     return (
      <>
       <Paper >
         <Tabs
           indicatorColor="primary"
           textColor="#64536f"
-          centered 
-          // onClick={this.props.pegaCategoria}
-          >
+          centered
+        >
             
           <Tab onClick={() =>{this.props.pegaCategoria('home')}} value={'home'} label="Home"/>
           <Tab onClick={() =>{this.props.pegaCategoria('acessorios')}} value={'acessorios'} label="Acessórios"/>

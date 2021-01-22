@@ -5,14 +5,12 @@ const BoxFilter = styled.div`
   display: flex;
   flex-wrap: nowrap;
   flex-grow: 1;
-  width: auto;
+  width: 90%;
   height: 10vh;
   justify-content: center;
   padding: 10px;
   border: 1px solid #4281a4;
   border-radius: 0px 0px 5px 5px;
-  margin-top: 0px;
-  margin-bottom: 5px;
   margin: auto;
   font-family: "Source Code Pro", monospace;
 `;
@@ -21,12 +19,25 @@ const Fontes = styled.p`
   margin: 2%;
   font-family: Arial, Helvetica, sans-serif;
 `;
-const Titulo = styled.p`
-  display: flex;
-  color: #64536f;
-  margin-top: 0;
-  margin-bottom: 1%;
-  font-family: Arial, Helvetica, sans-serif;
+const Titulo = styled.button`
+  width: 8%;
+  height: 35%;
+  font-size: 14px;
+  margin-top: 33px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #4281a4;
+  border-radius: 9px;
+  background-color: #4281a4;
+  color: #EEE;
+  outline: 0;
+  cursor: pointer;
+    :hover{ 
+    background-color:#91e2d3;
+    border: 1px solid #91e2d3;
+    border-radius: 9px;
+    color: #64536f;
+  }
 `;
 
 const Inputs = styled.input`
@@ -39,12 +50,13 @@ const Inputs = styled.input`
   margin-bottom: 10px;
   border: 1px solid #4281a4;
   border-radius: 9px;
+  outline: 0;
 `;
 
 const Selector = styled.select`
   width: 25%;
   height: 60%;
-  font-size: 16px;
+  font-size: 15px;
   margin: auto;
   margin-top: 2%;
   margin-right: 3px;
@@ -52,45 +64,16 @@ const Selector = styled.select`
   margin-bottom: 10px;
   border: 1px solid #4281a4;
   border-radius: 9px;
+  outline:0;
 `;
 
 export default class Filters extends React.Component {
-  // const [state, setState] = useState({
-  // name: '',
-  // });
 
-  // const handleChange = (event) => {
-  // const name = event.target.value;
-  // setState({state: name});
-
-  // };
-
-  // console.log(props)
-
-  //   const handleMaxFilter = (event) => {
-  //     const value = Number(event.target.value)
-
-  //     const newFilterValue = {
-  //       'maxValue': value,
-  //     }
-
-  //     props.onFilterChange(newFilterValue)
-  //   }
-
-  //   const handleMinFilter = (event) => {
-  //     const value = Number(event.target.value)
-
-  //     const newFilterValue = {
-  //       'minValue': value,
-  //     }
-
-  //     props.onFilterChange(newFilterValue)
-  //   }
   render() {
     return (
       <>
         <BoxFilter>
-          <Titulo>Filtros</Titulo>
+      
           <Fontes>Valor Mínimo:</Fontes>
           <Inputs
             type="number"
@@ -107,19 +90,19 @@ export default class Filters extends React.Component {
             onChange={this.props.handleFilterMax}
 
           />
+
+          <Titulo onClick={this.props.filtraProdutos}>Filtrar</Titulo>
+
+
           <Fontes>Buscar Produto:</Fontes>
           <Inputs
-            type="text"
+            type="search"
             name="busca"
-            // value={props.searchValue}
-            // onChange={props.handleSearchChange}
           />
-          <button onClick={this.props.filtraProdutos}>Filtar</button>
+          {/* <button onClick={this.props.filtraProdutos}>Filtar</button> */}
           <Fontes>Ordenar produtos:</Fontes>
           <Selector
             native
-            // value={state.name}
-            // onChange={handleChange}
             label="Ordenar"
           >
             <option aria-label="None" value="" />
@@ -135,10 +118,10 @@ export default class Filters extends React.Component {
             <option value="Moda e beleza">Moda e beleza</option>
             <option value="Agro e indústria">Agro e indústria</option>
           </Selector>
+        
         </BoxFilter>
       </>
     );
   }
 }
 
-// export default Filters;
