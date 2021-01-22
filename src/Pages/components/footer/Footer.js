@@ -27,13 +27,7 @@ export class Footer extends React.Component {
     window.location.replace("https://www.instagram.com/")
   }
 
-  
-
-
   render() {
-
-
-
     return (
       <div>
         <AppBar position="sticky">
@@ -60,8 +54,6 @@ export class Footer extends React.Component {
           </StyledToolBar>
         </AppBar>
       </div>
-
-
     );
   }
 }
