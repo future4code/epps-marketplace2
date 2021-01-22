@@ -104,19 +104,13 @@ export default class Filters extends React.Component {
           <Selector
             native
             label="Ordenar"
+            onChange={this.props.ordenacao}
           >
             <option aria-label="None" value="" />
-            <option value="Imóveis">Imóveis</option>
-            <option value="Autos e peças">Autos e peças</option>
-            <option value="Para a sua casa">Para a sua casa</option>
-            <option value="Eletrônicos e celulares">
-              Eletrônicos e celulares
-            </option>
-            <option value="Vagas de emprego">Vagas de emprego</option>
-            <option value="Músicas e hobbies">Músicas e hobbies</option>
-            <option value="Esportes e lazer">Esportes e lazer</option>
-            <option value="Moda e beleza">Moda e beleza</option>
-            <option value="Agro e indústria">Agro e indústria</option>
+            <option value="nome">Nome</option>
+            <option value="categoria">Categoria</option>
+            <option value="preco">Preço</option>
+
           </Selector>
         
         </BoxFilter>
